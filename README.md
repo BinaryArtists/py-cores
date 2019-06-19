@@ -22,5 +22,5 @@ Pypi账号密码助记
 ------
 
 ```
-fengzilijie mail / Feng...!@#
+fengzilijie mail / F...!@#
 ```
