@@ -12,12 +12,12 @@ from shutil import rmtree
 from setuptools import find_packages, setup, Command
 
 # Package meta-data.
-NAME = 'mypackage'
-DESCRIPTION = 'My short description for my project.'
-URL = 'https://github.com/me/myproject'
-EMAIL = 'me@example.com'
-AUTHOR = 'Awesome Soul'
-REQUIRES_PYTHON = '>=3.6.0'
+NAME = 'pyCores'
+DESCRIPTION = 'Core functions and Classes for python3 project.'
+URL = 'https://github.com/BinaryArtists/py-cores'
+EMAIL = 'fengzilijie@qq.com'
+AUTHOR = 'Fallen Ink'
+REQUIRES_PYTHON = '>=3.5.0'
 VERSION = '0.1.0'
 
 # What packages are required for this module to be executed?
