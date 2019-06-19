@@ -18,7 +18,7 @@ URL = 'https://github.com/BinaryArtists/py-cores'
 EMAIL = 'fengzilijie@qq.com'
 AUTHOR = 'Fallen Ink'
 REQUIRES_PYTHON = '>=3.5.0'
-VERSION = '0.1.8'
+VERSION = '0.1.10'
 
 # What packages are required for this module to be executed?
 REQUIRED = [
@@ -67,7 +67,8 @@ class UploadCommand(Command):
         print('\033[1m{0}\033[0m'.format(s))
 
     def initialize_options(self):
-        pass
+        os.system('rm -rf dist')
+        os.system('rm -rf *.egg-info')
 
     def finalize_options(self):
         pass
@@ -86,6 +87,8 @@ class UploadCommand(Command):
         os.system('twine upload dist/*')
 
         self.status('Pushing git tags…')
+        os.system('git add .')
+        os.system('git commit -m v{0}'.format(about['__version__'])) 
         os.system('git tag v{0}'.format(about['__version__']))
         os.system('git push --tags')
 
