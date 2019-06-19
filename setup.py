@@ -18,7 +18,7 @@ URL = 'https://github.com/BinaryArtists/py-cores'
 EMAIL = 'fengzilijie@qq.com'
 AUTHOR = 'Fallen Ink'
 REQUIRES_PYTHON = '>=3.5.0'
-VERSION = '0.1.10'
+VERSION = '0.1.12'
 
 # What packages are required for this module to be executed?
 REQUIRED = [
@@ -89,8 +89,10 @@ class UploadCommand(Command):
         self.status('Pushing git tags…')
         os.system('git add .')
         os.system('git commit -m v{0}'.format(about['__version__'])) 
+        os.system('git pull origin master')
         os.system('git tag v{0}'.format(about['__version__']))
         os.system('git push --tags')
+        os.system('git push origin master')
 
         sys.exit()
 
