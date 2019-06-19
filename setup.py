@@ -18,7 +18,7 @@ URL = 'https://github.com/BinaryArtists/py-cores'
 EMAIL = 'fengzilijie@qq.com'
 AUTHOR = 'Fallen Ink'
 REQUIRES_PYTHON = '>=3.5.0'
-VERSION = '0.1.4'
+VERSION = '0.1.6'
 
 # What packages are required for this module to be executed?
 REQUIRED = [
