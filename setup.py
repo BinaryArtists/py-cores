@@ -12,17 +12,17 @@ from shutil import rmtree
 from setuptools import find_packages, setup, Command
 
 # Package meta-data.
-NAME = 'pyCores'
+NAME = 'pycores'
 DESCRIPTION = 'Core functions and Classes for python3 project.'
 URL = 'https://github.com/BinaryArtists/py-cores'
 EMAIL = 'fengzilijie@qq.com'
 AUTHOR = 'Fallen Ink'
 REQUIRES_PYTHON = '>=3.5.0'
-VERSION = '0.1.0'
+VERSION = '0.1.4'
 
 # What packages are required for this module to be executed?
 REQUIRED = [
-    # 'requests', 'maya', 'records',
+    'aenum'
 ]
 
 # What packages are optional?
@@ -105,7 +105,7 @@ setup(
     url=URL,
     packages=find_packages(exclude=["tests", "*.tests", "*.tests.*", "tests.*"]),
     # If your package is a single module, use this instead of 'packages':
-    # py_modules=['mypackage'],
+    # py_modules=['mymodules'],
 
     # entry_points={
     #     'console_scripts': ['mycli=mymodule:cli'],

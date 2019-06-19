@@ -4,6 +4,10 @@
 from collections import defaultdict
 
 class NotificationCenter(object):
+    """
+    通知中心 单例
+    """
+
     _listeners = None
 
     def __new__(type):
@@ -13,12 +17,15 @@ class NotificationCenter(object):
 
         return type._singleton
 
-    def on(self, etype, listener):
-        self._listeners[etype].append(listener)
+    def on(self, e, listener):
+        self._listeners[e.type()].append(listener)
 
-    def off(self, etype, listener=None):
-        # self._listeners.remove(etype)
-        pass
+    def off(self, e, listener=None):
+        if e.type() in self._listeners:
+            if listener:
+                self._listeners[e.type()].remove(listener)
+            else:
+                del self._listeners[e.type()]
 
     def fire(self, notification):
         # 前置

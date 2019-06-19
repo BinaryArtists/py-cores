@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
 from enum import Enum
-from .notification import Notification
-from .notificationcenter import NotificationCenter
+from notification import Notification
+from notificationcenter import NotificationCenter
 
 class NOTIFICATION(Enum):
     '''
@@ -34,8 +34,8 @@ class sleep():
     def register(self):
         eventbus = NotificationCenter()
 
-        eventbus.on(NotificationSleep.type(), self._on_sleep)
-        eventbus.on(NotificationSleepPre.type(), self._pre_sleep)
+        eventbus.on(NotificationSleep, self._on_sleep)
+        eventbus.on(NotificationSleepPre, self._pre_sleep)
 
     def _on_sleep(self, event):
         print('开始睡觉了')
@@ -48,8 +48,8 @@ class eat():
     def register(self):
         eventbus = NotificationCenter()
 
-        eventbus.on(NotificationEat.type(), self._on_eat)
-        eventbus.on(NotificationEatPost.type(), self._post_eat)
+        eventbus.on(NotificationEat, self._on_eat)
+        eventbus.on(NotificationEatPost, self._post_eat)
 
     def _on_eat(self, event):
         print('开始吃晚饭了')
@@ -60,12 +60,18 @@ class eat():
 def test():
     eventbus = NotificationCenter()
 
-    eat().register()
-    sleep().register()
+    _eat = eat()
+    _eat.register()
+
+    _sleep = sleep()
+    _sleep.register()
 
     #启动事件驱动
     eventbus.fire(NotificationEat)
     eventbus.fire(NotificationSleep)
+
+    eventbus.off(NotificationEat)
+    eventbus.off(NotificationSleep, _sleep._on_sleep)
 
 if __name__ == '__main__':
     test()

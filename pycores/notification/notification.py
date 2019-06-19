@@ -4,25 +4,21 @@
 from enum import Enum, unique
 
 @unique
-class NOTIFICATION(Enum):
+class NotificationEnumExample(Enum):
     '''
     :brief 预定义事件类型
     '''
     EXAMPLE = 'example'
 
-# NOTIFICATION.EEEE = 'DDDD';
-setattr(NOTIFICATION, 'EEEE', 'DDDD')
-
-class AA_NOTIFICATION(NOTIFICATION):
-    XXX = 'ddddddd'
-
-def parse_notification(notification_str):
-    return NOTIFICATION.__members__.get(notification_str.upper(), None)
-
 '''
 @brief 通知，在当前线程执行
 '''
 class Notification(object):
+
+    @staticmethod
+    def parse(EnumCls, notification_str):
+        return EnumCls.__members__.get(notification_str.upper(), None)
+
     _notification_type = None
     _notification_payload = None
 
@@ -80,7 +76,3 @@ class Notification(object):
         :return:
         '''
         return self._after
-
-
-d = parse_notification('ddddddd')
-print(str(d))

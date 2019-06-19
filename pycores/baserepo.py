@@ -10,7 +10,7 @@
 # - [项目架构开发：数据访问层之Repository](https://www.cnblogs.com/lanxiaoke/p/6503022.html)
 ###############################################
 
-class Repository(object):
+class BaseRepo(object):
     ## 创建实例
     # @desc 不做插入动作, db中不应该产生实例
     @staticmethod
